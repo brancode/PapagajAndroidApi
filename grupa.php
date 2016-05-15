@@ -14,7 +14,9 @@ require_once __DIR__ . '\db_connect.php';
 $db = new DB_CONNECT();
  
 // get all products from products table
-$result = mysql_query("SELECT grupa_id,naziv FROM grupa WHERE aktivna=1") or die(mysql_error());
+$result = mysql_query("SELECT grupa_id,naziv " .
+	" FROM grupa " .
+	" WHERE aktivna=1 and osnovna=0") or die(mysql_error());
  
 // check for empty result
 if (mysql_num_rows($result) > 0) 
