@@ -15,7 +15,8 @@ $db = new DB_CONNECT();
  
 // get all products from products table
 $id=$_REQUEST['id'];
-$result = mysql_query("SELECT naziv FROM artikal WHERE grupa_id='$id'") or die(mysql_error());
+$result = mysql_query("SELECT naziv FROM artikal " .
+	"WHERE grupa_id='$id' and aktivan=true") or die(mysql_error());
  
 // check for empty result
 
