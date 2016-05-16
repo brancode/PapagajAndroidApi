@@ -15,8 +15,10 @@ $db = new DB_CONNECT();
  
 // get all products from products table
 $id=$_REQUEST['id'];
-$result = mysql_query("SELECT naziv FROM artikal " .
-	"WHERE grupa_id='$id' and aktivan=true") or die(mysql_error());
+$result = mysql_query("SELECT a.artikal_id, a.naziv, round(z.pcpdv,2) as cijena " .
+	" FROM artikal a " .
+	" Inner join zalihe z on (a.artikal_id=z.artikal_id) " .
+	" WHERE a.grupa_id='$id' and a.aktivan=true") or die(mysql_error());
  
 // check for empty result
 
@@ -27,7 +29,9 @@ if (mysql_num_rows($result) > 0)
     while ($row = mysql_fetch_array($result)) 
 	{
         $product = array(
-          'naziv'=>utf8_decode($row['naziv']),
+          'artikal_id'=>utf8_decode($row['artikal_id']),
+		  'naziv'=>utf8_decode($row['naziv']),
+		  'cijena'=>utf8_decode($row['cijena']),
          );
         array_push($response["artikal"], $product);
     }
