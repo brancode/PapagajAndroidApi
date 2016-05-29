@@ -37,10 +37,10 @@ if (mysql_num_rows($result) > 0)
         $product = array(
           'sto_id' => utf8_decode($row['sto_id']),
 		  'region_id' => utf8_decode($row['region_id']),
-          'naziv'=>$row['naziv'],
+          'naziv'=>utf8_decode($row['naziv']),
 		  'iznos' => utf8_decode($row['iznos']),
 		  'korisnik_id' => utf8_decode($row['korisnik_id']),
-		  'kor_ime' => $row['kor_ime'],
+		  'kor_ime' => utf8_decode($row['kor_ime']),
          );
         array_push($response["sto"], $product);
     }
