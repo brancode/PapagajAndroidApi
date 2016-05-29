@@ -26,9 +26,9 @@ if (mysql_num_rows($result) > 0)
     while ($row = mysql_fetch_array($result)) 
 	{
         $product = array(
-          'ime' => utf8_decode($row['ime']),
-          'kartica'=>utf8_decode($row['kartica']),
-		  'region_id'=>utf8_decode($row['region_id']),
+          'ime' => $row['ime'],
+          'kartica'=>$row['kartica'],
+		  'region_id'=>$row['region_id'],
          );
         array_push($response["korisnik"], $product);
     }

@@ -29,9 +29,9 @@ if (mysql_num_rows($result) > 0)
     while ($row = mysql_fetch_array($result)) 
 	{
         $product = array(
-          'artikal_id'=>utf8_decode($row['artikal_id']),
-		  'naziv'=>utf8_decode($row['naziv']),
-		  'cijena'=>utf8_decode($row['cijena']),
+          'artikal_id'=>$row['artikal_id'],
+		  'naziv'=>$row['naziv'],
+		  'cijena'=>$row['cijena'],
          );
         array_push($response["artikal"], $product);
     }

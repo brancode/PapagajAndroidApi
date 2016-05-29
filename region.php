@@ -24,8 +24,8 @@ if (mysql_num_rows($result) > 0)
     while ($row = mysql_fetch_array($result)) 
 	{
         $product = array(
-          'region_id' => utf8_decode($row['region_id']),
-          'naziv'=>utf8_decode($row['naziv']),
+          'region_id' => $row['region_id'],
+          'naziv'=>$row['naziv'],
          );
         array_push($response["region"], $product);
     }

@@ -32,9 +32,9 @@ if (mysql_num_rows($result) > 0)
     while ($row = mysql_fetch_array($result)) 
 	{
         $grupa= array(
-          'dg_id'=>utf8_decode($row['dg_id']),
-		  'dg_tip'=>utf8_decode($row['dg_tip']),
-		  'dg_naziv'=>utf8_decode($row['dg_naziv']),
+          'dg_id'=>$row['dg_id'],
+		  'dg_tip'=>$row['dg_tip'],
+		  'dg_naziv'=>$row['dg_naziv'],
          );
 		 
 		$grupa_id=$row['dg_id']; 
@@ -52,9 +52,9 @@ if (mysql_num_rows($result) > 0)
 		{				
 			array_push($grupa['opcije'], 			
 				array(			
-						'dodatak_id'=>utf8_decode($row2['dodatak_id']),
-						'dodatak_naziv'=>utf8_decode($row2['dodatak_naziv']),
-						'defaultradio'=>utf8_decode($row2['defaultradio']),
+						'dodatak_id'=>$row2['dodatak_id'],
+						'dodatak_naziv'=>$row2['dodatak_naziv'],
+						'defaultradio'=>$row2['defaultradio'],
 				)			
 			);	
 		}

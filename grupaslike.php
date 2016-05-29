@@ -26,9 +26,9 @@ if (mysql_num_rows($result) > 0)
     while ($row = mysql_fetch_array($result)) 
 	{
         $product = array(
-          'grupa_id' => utf8_decode($row['grupa_id']),
-          'naziv'=>utf8_decode($row['naziv']),
-		  'naziv'=>utf8_decode($row['naziv']),
+          'grupa_id' => $row['grupa_id'],
+          'naziv'=>$row['naziv'],
+		  'naziv'=>$row['naziv'],
 		  'slika'=>base64_encode($row['slika']),
          );
         array_push($response["grupa"], $product);
