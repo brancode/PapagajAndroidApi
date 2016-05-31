@@ -15,7 +15,7 @@ $db = new DB_CONNECT();
  
 // get all products from products table
 $card=$_REQUEST['card'];
-$result = mysql_query("SELECT ime, kartica, region_id " .
+$result = mysql_query("SELECT ime, kartica, region_id, korisnik_id" .
 	" FROM korisnik " .
 	" where kartica='$card'; ") or die(mysql_error());
  
@@ -30,6 +30,7 @@ if (mysql_num_rows($result) > 0)
           'ime' => $row['ime'],
           'kartica'=>$row['kartica'],
 		  'region_id'=>$row['region_id'],
+          'korisnik_id'=>$row['korisnik_id'],
          );
         array_push($response["korisnik"], $product);
     }
