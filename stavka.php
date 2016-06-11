@@ -30,11 +30,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	}  
 	
 	
-	$sql2 = " insert into temp_porudzba (temp_porudzbadok_id, artikal_id, cijena, kolicina, nc) " .
-		" SELECT '$pd', a.`artikal_id`, z.`pcpdv`, '$kolicina' ,z.`nc` " .	
+	$sql2 = " insert into temp_porudzba (temp_porudzbadok_id, artikal_id, cijena, kolicina, nc, popust) " .
+		" SELECT '$pd', a.`artikal_id`, z.`pcpdv`, '$kolicina' ,z.`nc`, 0 " .	
 		" from artikal a " .
 		" inner join zalihe z on a.`artikal_id`=z.`artikal_id` " .
-		" where a.`artikal_id`=1 ";
+		" where a.`artikal_id`='$artikal_id' ";
  
  
  $qur = mysql_query($sql2);
